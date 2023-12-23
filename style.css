@@ -8,28 +8,50 @@
   src: url(./assets/Lato.ttf) format("truetype");
 }
 
+@font-face {
+  font-family: 'chula_mad';
+  src:  url(./assets/chula_mad.ttf);
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'chula_mad' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 :root {
   --main-neon-light: rgba(165, 4, 66, 0.5);
   --main-neon: rgba(165, 4, 66, 0.9);
 
   --second-high-neon-light: rgba(165, 234, 255, 0.75);
   --second-high-neon: rgb(168, 230, 248);
-  --second-med-neon-light: rgb(127, 225, 255, 0.75);
-  --second-med-neon: rgb(127, 225, 255, 1);
-  --second-low-neon-light: rgb(101, 180, 204, 0.75);
+  --second-med-neon-light: rgba(127, 225, 255, 0.75);
+  --second-med-neon: rgba(127, 225, 255, 1);
+  --second-low-neon-light: rgba(101, 180, 204, 0.75);
   --second-low-neon: rgb(101, 180, 204, 1);
 
   --high-neon-light: rgba(255, 48, 121, 0.2);
-  --high-neon: rgb(255, 48, 121, 1);
+  --high-neon: rgba(255, 48, 121, 1);
   --med-neon-light: rgba(204, 38, 96, 0.75);
   --med-neon: rgba(204, 38, 96, 1);
   --low-neon-light: rgba(153, 28, 72, 0.5);
-  --low-neon: rgb(153, 28, 72, 1);
+  --low-neon: rgba(153, 28, 72, 1);
 
   --high-neon-light: rgba(255, 48, 110, 0.25);
-  --high-neon: rgb(250, 59, 91);
+  --high-neon: rgba(250, 59, 91);
   --med-neon-light: rgba(204, 38, 60, 0.5);
-  --med-neon: rgb(204, 38, 66);
+  --med-neon: rgba(204, 38, 66);
   --low-neon-light: rgba(153, 28, 55, 0.25);
   --low-neon: rgba(153, 28, 55, 1);
 
@@ -79,6 +101,12 @@ body {
   transform: rotate(-15deg);
 }
 
+.neonbar::after {
+  transform: scale(1.1);
+  filter: blur(1.6rem);
+  opacity: 0.75;
+}
+
 h2 {
   animation: pulsate 0.25s ease-in-out infinite alternate;
   color: transparent;
@@ -86,6 +114,7 @@ h2 {
   vertical-align: middle;
   line-height: 0.75em;
   letter-spacing: 0.025em;
+  -webkit-text-stroke: 1px rgba(220, 255, 255, 0.25); 
 }
 
 .neonbar2 {
@@ -103,23 +132,50 @@ h3 {
   line-height: 0.5em;
   letter-spacing: 0.025em;
   color: transparent;
+  -webkit-text-stroke: 1px rgba(220, 255, 255, 0.15); 
+}
+
+.icon-chula_mad:before {
+  content: "\e900";
+  font-size: 225px;
+  animation: pulsate .25s ease-in-out infinite alternate;
+  color: transparent;
+  padding-left: 75px;
 }
 
 @keyframes pulsate {
   0% {
-    text-shadow: 0 0vw 0.25vw #ffd8d8, 0 0vw 0.25vw #ffd8d8,
-      0 0vw 0.25vw #ffd8d8, 0 0vw 0vw #f25757, 0 0vw 0vw #f25757,
-      0 0vw 0vw #f25757, 0 0vw 1vw #e50b0b, 0 0vw 1vw #e50b0b, 0 0vw 5vw #e50b0b;
+    text-shadow: 0 0vw 0.25vw #ffd8d8, 0 0vw 0.25vw #fc5959, 0 0vw 0.25vw #ffd8d8, 
+    0 0vw 0vw #f25757, 0 0vw 0vw #f25757, 0 0vw 0vw #f25757, 
+    0 0vw 1vw #e02323, 0 0vw 1vw #e02323, 0 0vw 5vw #e02323;
   }
 
   100% {
-    text-shadow: 0 0vw 0.3vw #ffd8d8, 0 0vw 0.3vw #ffd8d8, 0 0vw 0.3vw #ffd8d8,
+    text-shadow: 0 0vw 0.3vw #ffd8d8, 0 0vw 0.3vw #fc5959, 0 0vw 0.3vw #ffd8d8,
       0 0vw 0.1vw #f25757, 0 0vw 0.1vw #f25757, 0 0vw 0.1vw #f25757,
-      0 0vw 1.1vw #e50b0b, 0 0vw 1.1vw #e50b0b, 0 0vw 5.2vw #e50b0b;
+      0 0vw 1.1vw #e02323, 0 0vw 1.1vw #e02323, 0 0vw 5.2vw #e02323;
   }
 }
 
 @keyframes pulsate2 {
+  0% {
+    text-shadow: 0 0vw 0.25vw var(--second-high-neon), 0 0vw 0.25vw #44e3ff, 0 0vw 0.25vw var(--second-high-neon), 
+    0 0vw 0vw var(--second-med-neon), 0 0vw 0vw var(--second-med-neon), 0 0vw 0vw var(--second-med-neon), 
+    0 0vw 0.5vw var(--second-low-neon), 0 0vw 0.5vw var(--second-low-neon), 0 0vw 2.5vw var(--second-low-neon);
+  }
+
+  /* 20%, 24%, 55% {        
+    text-shadow: none;
+}     */
+
+  100% {
+    text-shadow: 0 0vw 0.3vw var(--second-high-neon), 0 0vw 0.3vw #44e3ff, 0 0vw 0.3vw var(--second-high-neon),
+      0 0vw 0.1vw var(--second-med-neon), 0 0vw 0.1vw var(--second-med-neon), 0 0vw 0.1vw var(--second-med-neon), 
+      0 0vw 0.6vw var(--second-low-neon), 0 0vw 0.6vw var(--second-low-neon), 0 0vw 2.75vw var(--second-low-neon);
+  }
+}
+
+@keyframes pulsate3 {
   0% {
     text-shadow: 0 0vw 0.25vw var(--second-high-neon),
       0 0vw 0.25vw var(--second-high-neon), 0 0vw 0.25vw var(--second-high-neon),
@@ -140,3 +196,4 @@ h3 {
       0 0vw 0.6vw var(--second-low-neon), 0 0vw 2.75vw var(--second-low-neon);
   }
 }
+
