@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "RedbarNeon",
-    "version": "1.3",
+    "version": "1.4",
     "description": "An aesthetically pleasing neon experience for your New Tab page, inspired by Redbar Radio. Install, and enjoy.",
     "chrome_url_overrides" : {
       "newtab": "index.html"
