@@ -16,7 +16,29 @@
   font-display: block;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+@font-face {
+  font-family: 'bbg';
+  src:  url(./assets/bbg.ttf);
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-bbg"], [class*=" icon-bbg"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'bbg' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-chula_mad"], [class*=" icon-chula_mad"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'chula_mad' !important;
   font-style: normal;
@@ -97,7 +119,7 @@ body {
 
 .neonbar {
   font-family: "Mr Dafoe";
-  font-size: 100px;
+  font-size: 5vw;
   transform: rotate(-15deg);
 }
 
@@ -108,7 +130,7 @@ body {
 }
 
 h2 {
-  animation: pulsate 0.25s ease-in-out infinite alternate;
+  animation: pulsate1 0.25s ease-in-out infinite alternate;
   color: transparent;
   text-align: center;
   vertical-align: middle;
@@ -119,13 +141,13 @@ h2 {
 
 .neonbar2 {
   font-family: "Lato";
-  font-size: 25px;
+  font-size: 1.25vw;
 }
 
 h3 {
   position: relative;
-  bottom: -25px;
-  left: 100px;
+  bottom: -2.5vh;
+  left: 5.5vw;
   animation: pulsate2 .25s ease-in-out infinite alternate;
   text-align: center;
   vertical-align: middle;
@@ -138,12 +160,20 @@ h3 {
 .icon-chula_mad:before {
   content: "\e900";
   font-size: 225px;
-  animation: pulsate .25s ease-in-out infinite alternate;
+  animation: pulsate2 .25s ease-in-out infinite alternate;
   color: transparent;
-  padding-left: 75px;
+  /* padding-left: 75px; */
 }
 
-@keyframes pulsate {
+.icon-bbg:before {
+  content: "\e900";
+  font-size: 550px;
+  animation: pulsate1 .25s ease-in-out infinite alternate;
+  color: transparent;
+  /* padding-left: 75px; */
+}
+
+@keyframes pulsate1 {
   0% {
     text-shadow: 0 0vw 0.25vw #ffd8d8, 0 0vw 0.25vw #fc5959, 0 0vw 0.25vw #ffd8d8, 
     0 0vw 0vw #f25757, 0 0vw 0vw #f25757, 0 0vw 0vw #f25757, 
