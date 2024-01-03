@@ -1,55 +1,27 @@
 @font-face {
-  font-family: 'Mr Dafoe';
+  font-family: "Mr Dafoe";
   src: url(./assets/MrDafoe.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'Lato';
+  font-family: "Lato";
   src: url(./assets/Lato.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: 'chula_mad';
-  src:  url(./assets/chula_mad.ttf);
+  font-family: "bbg";
+  src: url(./assets/bbg.ttf);
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
 @font-face {
-  font-family: 'bbg';
-  src:  url(./assets/bbg.ttf);
+  font-family: "ultra";
+  src: url(./assets/ultra.ttf);
   font-weight: normal;
   font-style: normal;
   font-display: block;
-}
-
-[class^="icon-bbg"], [class*=" icon-bbg"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'bbg' !important;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-[class^="icon-chula_mad"], [class*=" icon-chula_mad"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'chula_mad' !important;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 :root {
@@ -83,6 +55,25 @@
   --med-null: rgba(59, 59, 59, 1);
   --low-null-light: rgba(26, 26, 26, 0.25);
   --low-null: rgba(26, 26, 26, 1);
+
+  --white-light-neon: rgba(255, 255, 255, 1);
+  --white-med-neon: rgba(255, 255, 255, 0.75);
+  --white-low-neon: rgba(255, 255, 255, 0.5);
+}
+
+[class^="icon-bbg"],
+[class*=" icon-bbg"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "bbg" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -107,7 +98,9 @@ body {
   align-items: center;
 }
 
-#contain {
+#contain,
+#contain2,
+#contain3 {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
@@ -115,18 +108,13 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
 }
 
 .neonbar {
   font-family: "Mr Dafoe";
-  font-size: 5vw;
+  font-size: 6vw;
   transform: rotate(-15deg);
-}
-
-.neonbar::after {
-  transform: scale(1.1);
-  filter: blur(1.6rem);
-  opacity: 0.75;
 }
 
 h2 {
@@ -136,48 +124,86 @@ h2 {
   vertical-align: middle;
   line-height: 0.75em;
   letter-spacing: 0.025em;
-  -webkit-text-stroke: 1px rgba(220, 255, 255, 0.25); 
+  -webkit-text-stroke: 1px rgba(220, 255, 255, 0.25);
 }
 
 .neonbar2 {
   font-family: "Lato";
-  font-size: 1.25vw;
+  font-size: 1.5vw;
 }
 
 h3 {
   position: relative;
-  bottom: -2.5vh;
+  bottom: -1.5vw;
   left: 5.5vw;
-  animation: pulsate2 .25s ease-in-out infinite alternate;
+  animation: pulsate2 0.25s ease-in-out infinite alternate;
   text-align: center;
   vertical-align: middle;
   line-height: 0.5em;
   letter-spacing: 0.025em;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(220, 255, 255, 0.15); 
+  -webkit-text-stroke: 1px rgba(220, 255, 255, 0.15);
 }
 
-.icon-chula_mad:before {
-  content: "\e900";
-  font-size: 225px;
-  animation: pulsate2 .25s ease-in-out infinite alternate;
+.icon-bbg-text::before {
+  font-size: 10vw;
+  animation: pulsate1 0.25s ease-in-out infinite alternate;
+  content: "\e901";
   color: transparent;
-  /* padding-left: 75px; */
 }
 
-.icon-bbg:before {
+.icon-bbg-text {
+  margin-bottom: -2.5vw;
+}
+
+.icon-bbg-chula:before {
   content: "\e900";
-  font-size: 550px;
-  animation: pulsate1 .25s ease-in-out infinite alternate;
+  font-size: 25vw;
+  animation: pulsate3 0.25s ease-in-out infinite alternate;
   color: transparent;
-  /* padding-left: 75px; */
+}
+
+#options {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1vw;
+  opacity: 0;
+  transition: opacity .5s cubic-bezier(.25, 0, .3, 1);
+}
+
+#options:hover {
+  opacity: 1;
+}
+
+#scarsclubButton, #bbgButton {
+  background: none;
+  border: none;
+  color: white;
+  opacity: 0.75;
+  font-family: 'ultra';
+  margin-left: 1vw;
+  font-size: 1.25vw;
+  cursor: pointer;
+  transition: opacity .25s cubic-bezier(.25, 0, .3, 1);
+}
+
+.active {
+  opacity: 1 !important; /* Active button opacity */
+}
+
+#scarsclubButton:hover, #bbgButton:hover {
+  opacity: 1;
 }
 
 @keyframes pulsate1 {
   0% {
-    text-shadow: 0 0vw 0.25vw #ffd8d8, 0 0vw 0.25vw #fc5959, 0 0vw 0.25vw #ffd8d8, 
-    0 0vw 0vw #f25757, 0 0vw 0vw #f25757, 0 0vw 0vw #f25757, 
-    0 0vw 1vw #e02323, 0 0vw 1vw #e02323, 0 0vw 5vw #e02323;
+    text-shadow: 0 0vw 0.25vw #ffd8d8, 0 0vw 0.25vw #fc5959,
+      0 0vw 0.25vw #ffd8d8, 0 0vw 0vw #f25757, 0 0vw 0vw #f25757,
+      0 0vw 0vw #f25757, 0 0vw 1vw #e02323, 0 0vw 1vw #e02323, 0 0vw 5vw #e02323;
   }
 
   100% {
@@ -189,41 +215,36 @@ h3 {
 
 @keyframes pulsate2 {
   0% {
-    text-shadow: 0 0vw 0.25vw var(--second-high-neon), 0 0vw 0.25vw #44e3ff, 0 0vw 0.25vw var(--second-high-neon), 
-    0 0vw 0vw var(--second-med-neon), 0 0vw 0vw var(--second-med-neon), 0 0vw 0vw var(--second-med-neon), 
-    0 0vw 0.5vw var(--second-low-neon), 0 0vw 0.5vw var(--second-low-neon), 0 0vw 2.5vw var(--second-low-neon);
+    text-shadow: 0 0vw 0.25vw var(--second-high-neon), 0 0vw 0.25vw #44e3ff,
+      0 0vw 0.25vw var(--second-high-neon), 0 0vw 0vw var(--second-med-neon),
+      0 0vw 0vw var(--second-med-neon), 0 0vw 0vw var(--second-med-neon),
+      0 0vw 0.5vw var(--second-low-neon), 0 0vw 0.5vw var(--second-low-neon),
+      0 0vw 2.5vw var(--second-low-neon);
   }
 
-  /* 20%, 24%, 55% {        
-    text-shadow: none;
-}     */
-
   100% {
-    text-shadow: 0 0vw 0.3vw var(--second-high-neon), 0 0vw 0.3vw #44e3ff, 0 0vw 0.3vw var(--second-high-neon),
-      0 0vw 0.1vw var(--second-med-neon), 0 0vw 0.1vw var(--second-med-neon), 0 0vw 0.1vw var(--second-med-neon), 
-      0 0vw 0.6vw var(--second-low-neon), 0 0vw 0.6vw var(--second-low-neon), 0 0vw 2.75vw var(--second-low-neon);
+    text-shadow: 0 0vw 0.3vw var(--second-high-neon), 0 0vw 0.3vw #44e3ff,
+      0 0vw 0.3vw var(--second-high-neon), 0 0vw 0.1vw var(--second-med-neon),
+      0 0vw 0.1vw var(--second-med-neon), 0 0vw 0.1vw var(--second-med-neon),
+      0 0vw 0.6vw var(--second-low-neon), 0 0vw 0.6vw var(--second-low-neon),
+      0 0vw 2.75vw var(--second-low-neon);
   }
 }
 
 @keyframes pulsate3 {
   0% {
-    text-shadow: 0 0vw 0.25vw var(--second-high-neon),
-      0 0vw 0.25vw var(--second-high-neon), 0 0vw 0.25vw var(--second-high-neon),
-      0 0vw 0vw var(--second-med-neon), 0 0vw 0vw var(--second-med-neon),
-      0 0vw 0vw var(--second-med-neon), 0 0vw 0.5vw var(--second-low-neon),
-      0 0vw 0.5vw var(--second-low-neon), 0 0vw 2.5vw var(--second-low-neon);
+    text-shadow: 0 0vw 0.25vw var(--white-light-neon),
+      0 0vw 0.25vw var(--white-light-neon), 0 0vw 0.25vw var(--white-light-neon),
+      0 0vw 0vw var(--white-med-neon), 0 0vw 0vw var(--white-med-neon),
+      0 0vw 0vw var(--white-med-neon), 0 0vw 0.5vw var(--white-low-neon),
+      0 0vw 0.5vw var(--white-low-neon), 0 0vw 2.5vw var(--white-low-neon);
   }
-
-  /* 20%, 24%, 55% {        
-    text-shadow: none;
-}     */
 
   100% {
-    text-shadow: 0 0vw 0.3vw var(--second-high-neon),
-      0 0vw 0.3vw var(--second-high-neon), 0 0vw 0.3vw var(--second-high-neon),
-      0 0vw 0.1vw var(--second-med-neon), 0 0vw 0.1vw var(--second-med-neon),
-      0 0vw 0.1vw var(--second-med-neon), 0 0vw 0.6vw var(--second-low-neon),
-      0 0vw 0.6vw var(--second-low-neon), 0 0vw 2.75vw var(--second-low-neon);
+    text-shadow: 0 0vw 0.3vw var(--white-light-neon),
+      0 0vw 0.3vw var(--white-light-neon), 0 0vw 0.3vw var(--white-light-neon),
+      0 0vw 0.1vw var(--white-med-neon), 0 0vw 0.1vw var(--white-med-neon),
+      0 0vw 0.1vw var(--white-med-neon), 0 0vw 0.6vw var(--white-low-neon),
+      0 0vw 0.6vw var(--white-low-neon), 0 0vw 2.75vw var(--white-low-neon);
   }
 }
-
