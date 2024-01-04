@@ -167,12 +167,14 @@ h3 {
   position: absolute;
   bottom: 0;
   right: 0;
-  display: flex;
+  display: grid;
+  gap: 1vw 1vw;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
   padding: 1vw;
   opacity: 0;
-  transition: opacity .5s cubic-bezier(.25, 0, .3, 1);
+  transition: opacity 0.25s ease-in-out;
 }
 
 #options:hover {
@@ -183,12 +185,11 @@ h3 {
   background: none;
   border: none;
   color: white;
-  opacity: 0.75;
+  opacity: 0.5;
   font-family: 'ultra';
-  margin-left: 1vw;
   font-size: 1.25vw;
   cursor: pointer;
-  transition: opacity .25s cubic-bezier(.25, 0, .3, 1);
+  transition: opacity 0.1s ease-in-out;
 }
 
 .active {
