@@ -124,7 +124,8 @@ h2 {
   vertical-align: middle;
   line-height: 0.75em;
   letter-spacing: 0.025em;
-  -webkit-text-stroke: 1px rgba(220, 255, 255, 0.25);
+  -webkit-text-stroke: .01vw rgba(220, 255, 255, 0.25);
+  filter: blur(.025vw);
 }
 
 .neonbar2 {
@@ -142,7 +143,8 @@ h3 {
   line-height: 0.5em;
   letter-spacing: 0.025em;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(220, 255, 255, 0.15);
+  -webkit-text-stroke: .01vw rgba(220, 255, 255, .5);
+  filter: blur(.025vw);
 }
 
 .icon-bbg-text::before {
